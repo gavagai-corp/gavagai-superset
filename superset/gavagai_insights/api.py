@@ -8,7 +8,7 @@ from superset.constants import RouteMethod
 from superset.views.base import handle_api_exception
 
 config = app.config
-GAVAGAI_API_URL = config["GAVAGAI_API_URL"]
+GAVAGAI_BASE_URL = config["GAVAGAI_BASE_URL"]
 
 class GavagaiInsightsRestApi(BaseSupersetApi):
     include_route_methods = {
@@ -22,7 +22,7 @@ class GavagaiInsightsRestApi(BaseSupersetApi):
     def post(self) -> Response:
         jsonRequest = request.get_json()
         access_token = ''
-        url = f'{GAVAGAI_API_URL}/projects/{jsonRequest.get("projectId")}'
+        url = f'{GAVAGAI_BASE_URL}/explorer/v1/projects/{jsonRequest.get("projectId")}'
         headers = {'Content-Type': 'application/json', 'Authorization': f'Bearer {access_token}'}
         bodyRequest = {'topic': jsonRequest.get('topic'), 'texts':jsonRequest.get('texts'), 'sentiment': jsonRequest.get('sentiment')}
         print(bodyRequest)
