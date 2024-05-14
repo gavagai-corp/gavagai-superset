@@ -103,4 +103,4 @@ jobs:
 
       - name: Build and Push SHA Images
         run: |
-          docker push $REGISTRY/$GITHUB_REPOSITORY/$GITHUB_REF_NAME:$RELEASE
+          docker push $REGISTRY/$GITHUB_REPOSITORY/$GITHUB_REF_NAME:latest
