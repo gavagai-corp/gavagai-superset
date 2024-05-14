@@ -92,4 +92,5 @@ jobs:
 
       - name: Build and Push SHA Images
         run: |
+          docker image tag apache/superset:$GITHUB_SHA-${{ matrix.build_preset }} $REGISTRY/$GITHUB_REPOSITORY/$GITHUB_REF_NAME:latest
           docker push $REGISTRY/$GITHUB_REPOSITORY/$GITHUB_REF_NAME:latest
