@@ -64,10 +64,10 @@ if TYPE_CHECKING:
 logger = logging.getLogger(__name__)
 
 
-class SupersetAppInitializer:  # pylint: disable=too-many-public-methods
+class SupersetAppInitializer:  # pylint: disable=too-many-public-methods    
     def __init__(self, app: SupersetApp) -> None:
         super().__init__()
-
+        test = 'test'
         self.superset_app = app
         self.config = app.config
         self.manifest: dict[Any, Any] = {}
